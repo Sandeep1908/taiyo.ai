@@ -29,6 +29,16 @@ const fetchCasesData = async () => {
   return data.cases; // Adjust based on your API response
 };
 
+
+//Total counts
+const fetchTotalCount = async () => {
+  const response = await fetch('https://disease.sh/v3/covid-19/all');
+  const data = await response.json();
+  return data;
+};
+
+
+
 //Dashboard component
 const Dashboard: React.FC = () => {
   const tabs = ["Map", "Line Graph"];
@@ -48,13 +58,28 @@ const Dashboard: React.FC = () => {
     error: casesError,
   } = useQuery({ queryKey: ["casesData"], queryFn: fetchCasesData });
 
+
+  //fetching total count 
+
+  const { data } = useQuery({queryKey:['totalCount'], queryFn:fetchTotalCount});
+
+
   if (isLoading) return <h1 className="flex justify-center items-center h-full text-3xl text-white">Loading....  </h1>;
   if (error) return <div>Error fetching data</div>;
 
   return (
     <div className="w-full h-full relative">
-      <div className="w-full p-5 mt-10 flex justify-between items-center ">
+              <div className="flex justify-center items-center mt-3 p-3 space-x-4">
+              <p className="text-xs md:text-sm text-white">Total Caes: {data.cases.toLocaleString()}</p>
+              <p className="text-xs md:text-sm text-white">Total Death: {data.deaths.toLocaleString()}</p>
+              <p className="text-xs md:text-sm text-white">Total Recoverd: {data.recovered.toLocaleString()}</p>
+
+              
+          </div>
+      <div className="w-full p-5 mt-5 flex justify-between items-end ">
         <h1 className="text-lg md:text-5xl text-white font-bold ">Charts & Map</h1>
+        
+  
         <div className="flex justify-center items-center space-x-4">
           {tabs?.map((item, id) => {
             return (
@@ -68,7 +93,9 @@ const Dashboard: React.FC = () => {
             );
           })}
         </div>
-      </div>
+        </div>
+        
+     
       <hr />
 
       {currentIdx === 0 ? (
