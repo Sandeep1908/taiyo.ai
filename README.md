@@ -1,46 +1,84 @@
-# Getting Started with Create React App
+name: Contact Management App with Maps and Charts
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+description: >
+  A Contact Management application that integrates maps and charts to provide a visual representation of contact data and COVID-19 statistics. The app allows users to manage contacts, view their locations on a map, and analyze COVID-19 case fluctuations with charts.
 
-## Available Scripts
+features:
+  - Contact Management: Add, update, and delete contacts.
+  - Map Integration: Visualize contacts and COVID-19 data on an interactive map.
+  - Charts: Display COVID-19 case fluctuations over time with a line graph.
+  - Real-time Data: Fetch and display real-time COVID-19 data from external APIs.
 
-In the project directory, you can run:
+technologies:
+  - React: Front-end library for building user interfaces.
+  - Redux Toolkit: State management for handling contacts.
+  - React Router: For routing between different pages.
+  - TanStack Query: For fetching data from APIs.
+  - React Leaflet: For displaying maps.
+  - Chart.js: For rendering charts.
 
-### `npm start`
+apis:
+  covid_data:
+    endpoint: https://disease.sh/v3/covid-19/countries
+    description: Provides COVID-19 statistics for all countries. Includes data on active cases, recovered cases, deaths, and country-specific information such as latitude, longitude, and flags.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  total_covid_statistics:
+    endpoint: https://disease.sh/v3/covid-19/all
+    description: Provides global COVID-19 statistics, including total cases, deaths, recovered, active cases, and critical cases.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+installation:
+  - Clone the Repository:
+    ```bash
+    git clone https://github.com/your-repo/contact-management-app.git
+    cd contact-management-app
+    ```
 
-### `npm test`
+  - Install Dependencies:
+    ```bash
+    npm install
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+running:
+  - Start the Development Server:
+    ```bash
+    npm start
+    ```
+    This will start the React development server and open the application in your default browser.
 
-### `npm run build`
+  - Access the App:
+    Navigate to `http://localhost:3000` in your browser to view the app.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+code_structure:
+  - src/: Contains all source files.
+    - api/: Contains API functions for fetching data.
+    - components/: Contains reusable React components.
+    - redux/: Contains Redux slices and hooks for state management.
+    - pages/: Contains page components.
+    - App.tsx: Main application component with routing.
+    - index.tsx: Entry point of the React application.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+key_components:
+  - MapComponent.tsx: Displays an interactive map with markers.
+  - LineChart.tsx: Renders a line chart showing case fluctuations.
+  - Modal.tsx: Modal component for adding or editing contacts.
+  - UpdateModal.tsx: Modal component for updating contact details.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+usage_examples:
+  - Adding a Contact:
+    - Click the "Add Contact" button to open the modal.
+    - Fill in the contact details and click "Add Contact" to save.
 
-### `npm run eject`
+  - Viewing COVID-19 Data:
+    - The dashboard will display a map with markers for each country.
+    - The line chart shows COVID-19 case fluctuations over time.
+    - The total count component displays global COVID-19 statistics.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+comments_documentation:
+  - Code Comments: The code is commented to explain key logic and functionality.
+  - Documentation: Inline comments provide additional information about components and API usage.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+contributing:
+  - Feel free to open issues or submit pull requests if you want to contribute to this project. Ensure your changes are well-tested and follow the existing code style.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+license:
+  - This project is licensed under the MIT License.
