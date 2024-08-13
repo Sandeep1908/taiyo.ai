@@ -17,6 +17,10 @@ const Sidebar: React.FC = () => {
     },
   ];
   const [currentIdx, setCurrentIdx] = useState<number>(0);
+  const handleNavigation=(id:number)=>{
+    setCurrentIdx(id)
+    setIsSidebar(false)
+  }
   return (
     <div className="">
       <div
@@ -42,6 +46,7 @@ const Sidebar: React.FC = () => {
           <IoCloseCircleOutline
             size={25}
             color="#fff"
+            className="cursor-pointer"
             onClick={() => setIsSidebar(false)}
           />
         </div>
@@ -57,7 +62,7 @@ const Sidebar: React.FC = () => {
                     ? "bg-gradient-to-r from-cyan-500 to-blue-500"
                     : ""
                 } `}
-                onClick={() => setCurrentIdx(id)}
+                onClick={() => handleNavigation(id)}
               >
                 {item.title}
               </Link>

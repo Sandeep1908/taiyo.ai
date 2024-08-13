@@ -58,7 +58,7 @@ const UpdateModal: React.FC<ModalProps> = ({ isOpen, setIsOpen, idx }) => {
 
   return (
     <div
-      className={`absolute top-36 left-1/4 w-full max-w-96 h-96 transition-all duration-500 backdrop-blur-lg shadow-lg ${
+      className={`absolute top-36  md:left-[40%] w-full max-w-96 h-96  transition-all duration-500  backdrop-blur-lg shadow-lg ${
         isOpen ? "opacity-1 translate-y-0" : "opacity-0 translate-y-11 z-[-20]"
       }`}
     >
